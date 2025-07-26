@@ -24,3 +24,30 @@ Guidelines for using Anthropic Claude Code in the **deepak-portfolio** repo.
 - One H1 per file; use sentence‑case headings.
 
 ## 4  Directory Layout
+/
+├─ backend/ # Spring Boot project
+├─ frontend/ # Vite React app
+├─ infrastructure/ # CDK or Amplify infra
+├─ docs/
+│ ├─ VISION.md
+│ └─ architecture.md
+└─ .github/workflows/ # CI pipelines
+
+## 5  Branch & Commit Policy
+- Branch naming: `feat/<scope>`, `fix/<scope>`, `chore/<scope>`.
+- Commit messages MUST follow **Conventional Commits**.
+- All PRs require ✔️ from `lint`, `test`, `build` GitHub Actions.
+
+## 6  CI/CD
+- Every push triggers Amplify’s build → test → deploy pipeline (see `amplify.yml`).
+- Secrets (`TMDB_API_KEY`, `RAWG_API_KEY`) stored in Amplify environment variables.
+
+## 7  Testing
+- **Backend:** JUnit 5 + Testcontainers for Postgres.
+- **Frontend:** React Testing Library + Jest + Cypress e2e.
+
+## 8  Security & Accessibility
+- Run OWASP Dependency‑Check on each PR.
+- Validate UI against WCAG 2.2 AA using `axe-core`.
+
+## 9  Useful Prompts
